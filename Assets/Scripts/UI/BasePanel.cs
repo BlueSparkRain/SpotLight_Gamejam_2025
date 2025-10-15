@@ -2,11 +2,16 @@ using System.Collections;
 using UnityEngine;
 public abstract class BasePanel : MonoBehaviour
 {
+
+    protected Transform root;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
+
+        root = transform.GetChild(0);
+
     }
-    public float transTime = 1;
+    public float transTime = 0.5f;
 
     /// <summary>
     /// 面板进入动画缓动逻辑
@@ -35,15 +40,6 @@ public abstract class BasePanel : MonoBehaviour
     {
     }
     protected virtual void Init() { }
-    protected virtual void ClickButton(string buttonName)
-    {
-    }
-    protected virtual void SliderValueChange(string sliderName, float value)
-    {
-    }
-    protected virtual void ToggleValueChange(string sliderName, bool value)
-    {
-    }
 
 
 }

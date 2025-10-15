@@ -100,8 +100,6 @@ public class EventCenter : BaseSingleton<EventCenter>
         if (eventDic.ContainsKey(name))
             (eventDic[name] as PriorityEventInfo<T>).allActions.Remove(priorityAction);
     }
-
-
     /// <summary>
     /// 清除所有事件
     /// </summary>
@@ -224,8 +222,9 @@ public interface IEventInfo { }
 
 public enum E_EventType
 {
-    E_BossHit,
     E_mouseFree,
+    E_selectNewApp,
+    E_dragAPPDone,
 }
 
 

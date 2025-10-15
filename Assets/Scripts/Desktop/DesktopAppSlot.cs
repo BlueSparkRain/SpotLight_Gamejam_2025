@@ -2,13 +2,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DesktopAppSlot : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler
+public class DesktopAPPSlot : MonoBehaviour,IPointerClickHandler
 {
     Image slotBack;
+    bool hasApp=false;
+    
+    [ContextMenu("´òÓ¡Î»ÖÃ")]
+    void printPos(){
+        Debug.Log(transform.position);
+    }
+
+    public bool HasApp {  get { return hasApp; } }
+    public void getApp(bool istrue)=>hasApp=istrue;  
+
     void Start()
     {
         slotBack = GetComponent<Image>();
-        EventCenter.Instance.AddEventListener(E_EventType.E_BossHit, HideSlot);
+        EventCenter.Instance.AddEventListener(E_EventType.E_mouseFree, HideSlot);
+        if(transform.childCount !=0 )
+        hasApp = true;
     }
 
     public void ShowSlot()
@@ -17,19 +29,14 @@ public class DesktopAppSlot : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
     }
     public void HideSlot()
     {
+        //Debug.Log("Òþ²Ø£¡");
         slotBack.color = new Color(1, 1, 1, 0);
     }
   
-    public void OnPointerExit(PointerEventData eventData)
-    {
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        if (!hasApp)
+            EventCenter.Instance.EventTrigger(E_EventType.E_mouseFree);
     }
 }
