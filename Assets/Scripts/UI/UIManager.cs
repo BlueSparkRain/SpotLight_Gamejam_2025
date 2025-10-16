@@ -23,10 +23,10 @@ public class UIManager : BaseSingleton<UIManager>
             if (!panel.gameObject.activeSelf)
                 panel.gameObject.SetActive(true);
 
-            panel.ShowPanel();
             before_callBack?.Invoke(panelDic[panelName] as T);
+            panel.ShowPanel();
             MonoManager.Instance.StartCoroutine(panel.ShowPanelTweenEffect());
-            Debug.Log("面板已存在:" + panelName);
+            //Debug.Log("面板已存在:" + panelName);
             end_callBack?.Invoke(panelDic[panelName] as T);
             return;
         }
@@ -40,10 +40,10 @@ public class UIManager : BaseSingleton<UIManager>
 
         //获取对应UI组件返回
         panel = panelobj.GetComponent<BasePanel>();
-        panel.ShowPanel();
         before_callBack?.Invoke(panel as T);
+        panel.ShowPanel();
         MonoManager.Instance.StartCoroutine(panel.ShowPanelTweenEffect());
-        Debug.Log("新面板！" + panelName);
+        //Debug.Log("新面板！" + panelName);
         end_callBack?.Invoke(panel as T);
         //存储panel
         if (!panelDic.ContainsKey(panelName))

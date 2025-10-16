@@ -24,7 +24,11 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
 
     //当前正被选择
     bool isSelecting;
-    //bool isDraging;
+
+    public E_APPType apptype;
+
+    bool appIsRuning = false;
+
 
     public void freeSelect(){
         isSelecting = false;
@@ -49,12 +53,25 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
         EventCenter.Instance.EventTrigger(E_EventType.E_selectNewApp, this);
     }
 
+    void onAppClose(E_APPType _apptype) {
+        if (apptype == _apptype)
+        {
+            image.color = Color.white;
+            appIsRuning = false;
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventCenter.Instance.AddEventListener(E_EventType.E_mouseFree, freeSelect);
+        EventCenter.Instance.AddEventListener<E_APPType>(E_EventType.E_closeApp, onAppClose);
+    }
+
     void Start()
     {
         image = GetComponent<Image>();
         m_EventSystem ??= EventSystem.current;
         m_Raycaster ??= GetComponent<GraphicRaycaster>();
-        EventCenter.Instance.AddEventListener(E_EventType.E_mouseFree, freeSelect);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -75,16 +92,18 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
             timer -= Time.deltaTime;
         else clickCount = 0;
 
-        if (clickCount > 1)
+        if (!appIsRuning && clickCount > 1)
         {
+            clickCount = 0;
+            appIsRuning = true;
             //打开软件：呼叫面板
-            image.color = Color.red;
+            image.color = Color.black;
+            APPTagsCaller.Instance.CallNewAppTag(apptype);
         }
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
         clickCount=0;
-        //isDraging = true;
         selectSelf();
 
         //拖拽APP，释放本槽
@@ -94,7 +113,6 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
 
         EventCenter.Instance.EventTrigger(E_EventType.E_mouseFree);
         
-        //GameSceneManager.Instance.isDragingAPP = true;
     }
     public void OnDrag(PointerEventData eventData)
     {

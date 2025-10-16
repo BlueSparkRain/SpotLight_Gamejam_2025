@@ -14,31 +14,42 @@ public class ButtomAppTag : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     bool isAppOpening = false;
     APPCaller appCaller;
 
-    public ButtomAppTag(E_APPType apptype) { 
+    public void Init(E_APPType apptype) { 
         this.appType = apptype;
     }
 
-    private void Start()
+    void onAppMinus(E_APPType _apptype) {
+        if (appType == _apptype)
+        {
+           // appCaller = APPCaller.Instance;
+            isAppOpening = !isAppOpening;
+        }
+    }
+
+    private void OnEnable()
     {
+        EventCenter.Instance.AddEventListener<E_APPType>(E_EventType.E_minusApp,onAppMinus);    
+    }
+
+    private void Awake()
+    {
+        appCaller ??= APPCaller.Instance;
         image = GetComponent<Image>();
         callButton = GetComponent<Button>();
-        callButton?.onClick.AddListener(onClickCallButton);
+        callButton.onClick.AddListener(onClickCallButton);
         child = transform.GetChild(0);
     }
 
-
-    void onClickCallButton()
+    public void onClickCallButton()
     {
         if (!isAppOpening)
         {
-            appCaller ??= APPCaller.Instance;
-            Debug.Log(transform.position + "-" + this.name);
+            appCaller = APPCaller.Instance;
             appCaller.CallApp(appType, transform.position);
         }
         else
         {
-            appCaller ??= APPCaller.Instance;
-            Debug.Log(transform.position + "-" + this.name);
+            appCaller = APPCaller.Instance;
             appCaller.HideApp(appType);
         }
         isAppOpening = !isAppOpening;

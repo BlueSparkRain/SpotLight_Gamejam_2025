@@ -2,9 +2,8 @@ using System.Collections;
 using UnityEngine;
 public abstract class BasePanel : MonoBehaviour
 {
-
     protected Transform root;
-    private void Awake()
+    protected virtual void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
 

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IApp
+public interface IAppCanCall
 {
     public void CallMe(Vector3 appearPos);
     public void HideMe();
@@ -10,7 +10,7 @@ public interface IApp
 /// <summary>
 /// 聊天软件
 /// </summary>
-public class ChatApp : IApp
+public class ChatApp : IAppCanCall
 {
     public void CallMe(Vector3 appearPos) =>
         UIManager.Instance.ShowPanel<ChatPanel>(null,(panel) => panel.SetWebBornPos(appearPos));
@@ -18,14 +18,14 @@ public class ChatApp : IApp
     public void HideMe() =>
         UIManager.Instance.HidePanel<ChatPanel>();
 }
+
 /// <summary>
 /// 社交媒体
 /// </summary>
-public class SocialApp : IApp
+public class SocialApp : IAppCanCall
 {
     public void CallMe(Vector3 appearPos) =>
         UIManager.Instance.ShowPanel<SocialPanel>(null,(panel) => panel.SetWebBornPos(appearPos));
-
     public void HideMe() =>
     UIManager.Instance.HidePanel<SocialPanel>();
 
@@ -33,28 +33,23 @@ public class SocialApp : IApp
 /// <summary>
 /// 直播软件
 /// </summary>
-public class LiveApp : IApp
+public class LiveApp : IAppCanCall
 {
     public void CallMe(Vector3 appearPos) =>
-        UIManager.Instance.ShowPanel<SocialPanel>(null, (panel) => panel.SetWebBornPos(appearPos));
+        UIManager.Instance.ShowPanel<LivePanel>(null, (panel) => panel.SetWebBornPos(appearPos));
 
     public void HideMe() =>
-    UIManager.Instance.HidePanel<SocialPanel>();
-
+    UIManager.Instance.HidePanel<LivePanel>();
 }
 
 public class APPCaller : MonoSingleton<APPCaller>
 {
-    public Transform AppTagsContainer;
-
+   
     /// <summary>
     /// 点击应用时在桌面底部新增一个app标签，并打开网页
     /// </summary>
     public void ShowAppTag()
     {
-
-
-
 
     }
 
@@ -64,14 +59,10 @@ public class APPCaller : MonoSingleton<APPCaller>
     public void CloseAppTag()
     {
 
-
-
-
     }
-
     public void CallApp(E_APPType appType, Vector3 appearPos)
     {
-        IApp app;
+        IAppCanCall app;
         switch (appType)
         {
             case E_APPType.社交媒体:
@@ -89,9 +80,8 @@ public class APPCaller : MonoSingleton<APPCaller>
         }
         app.CallMe(appearPos);
     }
-
     public void HideApp(E_APPType appType) {
-        IApp app;
+        IAppCanCall app;
         switch (appType)
         {
             case E_APPType.社交媒体:

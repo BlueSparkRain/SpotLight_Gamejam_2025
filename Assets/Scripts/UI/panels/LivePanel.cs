@@ -1,19 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ChatPanel : APPPanel
+public class LivePanel :APPPanel
 {
     protected override void onclickDelButton()
     {
-  
         base.onclickDelButton();
-        UIManager.Instance.HidePanel<ChatPanel>();
-        APPTagsCaller.Instance.CloseAppTag(E_APPType.聊天软件);
+        UIManager.Instance.HidePanel<LivePanel>();
+        APPTagsCaller.Instance.CloseAppTag(E_APPType.直播软件);
     }
     protected override void onclickminusButton()
     {
         base.onclickminusButton();
-        UIManager.Instance.HidePanel<ChatPanel>();
+        UIManager.Instance.HidePanel<LivePanel>();
     }
+
     public override void ShowPanel()
     {
         base.ShowPanel();
@@ -23,5 +25,4 @@ public class ChatPanel : APPPanel
     {
         base.HidePanel();
     }
-
 }

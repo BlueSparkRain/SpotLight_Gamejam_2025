@@ -1,47 +1,67 @@
 using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class APPTagsCaller : MonoSingleton<APPTagsCaller>
 {
-    //值：App Tag在grid布局的序号
-    Dictionary<E_APPType, int> appTagDic = new Dictionary<E_APPType, int>();
+    public List<E_APPType>  appTypeList = new List<E_APPType>();
 
     //App标签预制件
-    private GameObject appTagPrefab;
+    public GameObject appTagObjRef;
 
     [Header("桌面底部应用标签-父容器")]
-    public Transform appTagContainer;
-
-
-    private void Start()
-    {
-        
-    }
-
-    public void CallNewApp(E_APPType apptype)
+    public HorizontalContainer appTagsContainer;
+    public void CallNewAppTag(E_APPType apptype)
     {
 
+        if (appTypeList.Contains(apptype)) {
+            Debug.Log("此应用为单例模式");
+            return;
+        }
+        else {
+            appTypeList.Add(apptype);
+            GameObject tagobj;
+            tagobj = Instantiate(appTagObjRef);
+            tagobj.GetComponent<ButtomAppTag>().Init(apptype);
+            appTagsContainer.Add(tagobj.transform);
 
-    }
-
-    public void CloseApp(E_APPType apptype)
-    {
-        if (appTagDic.ContainsKey(apptype))
-        {
-            tagDel(appTagContainer.GetChild(appTagDic[apptype]));
-            appTagDic.Remove(apptype);
+            APPCaller.Instance.CallApp(apptype,tagobj.transform.position);
+            EventCenter.Instance.EventTrigger(E_EventType.E_minusApp,apptype);
         }
     }
 
-    void tagDel(Transform apptag)
+    private void Update()
+    {
+    }
+
+    public void CloseAppTag(E_APPType apptype)
+    {
+        if (appTypeList.Contains(apptype))
+        {
+            EventCenter.Instance.EventTrigger(E_EventType.E_closeApp, apptype);
+            Transform delTag = appTagsContainer.transform.GetChild(appTypeList.IndexOf(apptype));
+            delTag.SetParent(null);
+
+            appTypeList.Remove(apptype);
+            appTagsContainer.Remove(delTag, 0.1f);
+            delTagAnim(delTag);
+        }
+    }
+
+
+    void delTagAnim(Transform apptag)
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(apptag.DOLocalJump(Vector3.zero, 10, 1, 0.05f, true));
-        seq.Append(apptag.DOLocalMoveY( -5,0.1f));
+        seq.Append(apptag.DOJump(apptag.position+10*Vector3.up, 10, 1, 0.05f, true));
+        seq.Append(apptag.DOLocalMoveY(-20, 0.05f));
+        seq.SetAutoKill(true); // 动画播放完毕后自动销毁 Tween
+        seq.Play();            // 开始播放 Sequence
         seq.OnComplete(() =>
         {
-            DestroyImmediate(apptag);
+            DestroyImmediate(apptag.gameObject);
         });
     }
 
