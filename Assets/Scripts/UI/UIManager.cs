@@ -2,13 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public enum E_UILayer
-{
-    Bottom,
-    Middle,
-    Top,
-    System,
-}
 
 /// <summary>
 /// 管理所有UI面板
@@ -18,7 +11,7 @@ public class UIManager : BaseSingleton<UIManager>
 {
 
     private Dictionary<string, BasePanel> panelDic = new Dictionary<string, BasePanel>();
-    public void ShowPanel<T>(UnityAction<T> callBack, E_UILayer layer = E_UILayer.Middle, bool isSync = false) where T : BasePanel
+    public void ShowPanel<T>(UnityAction<T> end_callBack, UnityAction<T> before_callBack) where T : BasePanel
     {
         //获取面板名，预制体名和面板类名需保持一致
         string panelName = typeof(T).Name;
@@ -31,9 +24,10 @@ public class UIManager : BaseSingleton<UIManager>
                 panel.gameObject.SetActive(true);
 
             panel.ShowPanel();
+            before_callBack?.Invoke(panelDic[panelName] as T);
             MonoManager.Instance.StartCoroutine(panel.ShowPanelTweenEffect());
             Debug.Log("面板已存在:" + panelName);
-            callBack?.Invoke(panelDic[panelName] as T);
+            end_callBack?.Invoke(panelDic[panelName] as T);
             return;
         }
         //不存在面板，先加载资源
@@ -47,10 +41,10 @@ public class UIManager : BaseSingleton<UIManager>
         //获取对应UI组件返回
         panel = panelobj.GetComponent<BasePanel>();
         panel.ShowPanel();
+        before_callBack?.Invoke(panel as T);
         MonoManager.Instance.StartCoroutine(panel.ShowPanelTweenEffect());
-
         Debug.Log("新面板！" + panelName);
-        callBack?.Invoke(panel as T);
+        end_callBack?.Invoke(panel as T);
         //存储panel
         if (!panelDic.ContainsKey(panelName))
         {

@@ -1,5 +1,6 @@
 public class ChatPanel : APPPanel
 {
+
     public override void ShowPanel()
     {
         base.ShowPanel();

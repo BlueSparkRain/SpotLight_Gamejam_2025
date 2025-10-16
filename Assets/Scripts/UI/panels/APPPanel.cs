@@ -7,6 +7,7 @@ public class APPPanel : BasePanel
     protected Vector3 bornPos = Vector3.zero;
     public void SetWebBornPos(Vector3 _bornpos)
     {
+        Debug.Log("cacskad:"+_bornpos);
         bornPos = _bornpos;
     }
     public override void HidePanel()
@@ -37,7 +38,9 @@ public class APPPanel : BasePanel
 
     public override IEnumerator ShowPanelTweenEffect()
     {
-        root.position = Vector3.zero;
+
+        root.localScale = Vector3.zero;
+        root.position = bornPos;
         Sequence sequence = DOTween.Sequence();
 
         sequence.Append(root.DOScale(1, transTime));
@@ -49,5 +52,4 @@ public class APPPanel : BasePanel
     {
         base.Init();
     }
-
 }

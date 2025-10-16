@@ -13,7 +13,7 @@ public class DesktopAPPSlot : MonoBehaviour,IPointerClickHandler
     }
 
     public bool HasApp {  get { return hasApp; } }
-    public void getApp(bool istrue)=>hasApp=istrue;  
+    public void GetApp(bool istrue)=>hasApp=istrue;  
 
     void Start()
     {

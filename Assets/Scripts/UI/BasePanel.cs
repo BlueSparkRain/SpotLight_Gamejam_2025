@@ -11,7 +11,7 @@ public abstract class BasePanel : MonoBehaviour
         root = transform.GetChild(0);
 
     }
-    public float transTime = 0.5f;
+    protected float transTime = 0.15f;
 
     /// <summary>
     /// 面板进入动画缓动逻辑

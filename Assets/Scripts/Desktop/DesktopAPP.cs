@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-enum APP_Type
+public enum E_APPType
 {
     社交媒体,
     聊天软件,
+    直播软件,
 }
 
 public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler, IPointerClickHandler,
@@ -38,12 +39,12 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
     private PointerEventData m_PointerEventData;
     public void OnPointerClick(PointerEventData eventData)
     {
-        SelectSelf();
+        selectSelf();
         clickCount++;
         timer = 1;
     }
 
-    void SelectSelf() {
+    void selectSelf() {
         isSelecting = true;
         EventCenter.Instance.EventTrigger(E_EventType.E_selectNewApp, this);
     }
@@ -84,10 +85,10 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
     {
         clickCount=0;
         //isDraging = true;
-        SelectSelf();
+        selectSelf();
 
         //拖拽APP，释放本槽
-        slot?.getApp(false);
+        slot?.GetApp(false);
         pre_slot = slot;
         slot= null;
 
@@ -118,7 +119,7 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
             slot = GameSceneManager.Instance.targetEmptSlot;
         }
 
-        slot.getApp(true);
+        slot.GetApp(true);
 
 
         transform.SetParent(slot.transform);

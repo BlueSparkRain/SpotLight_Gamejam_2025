@@ -4,7 +4,7 @@ public class MenuSceneManager : MonoBehaviour
 {
     public void testOpen()
     {
-        UIManager.Instance.ShowPanel<SceneTransPanel>(null);
+        UIManager.Instance.ShowPanel<SceneTransPanel>(null,null);
     }
     public void testHide()
     {

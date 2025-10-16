@@ -1,7 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
-public class WebPanel : APPPanel
+public class SocialPanel : APPPanel
 {
 
     public override void ShowPanel()

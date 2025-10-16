@@ -967,7 +967,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3174838873619417698}
   m_Father: {fileID: 4036961261051081238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1440,19 +1441,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6757884794295520731}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7961147305808373058}
   - {fileID: 8198669823996542007}
-  m_Father: {fileID: 4036961261051081238}
+  m_Father: {fileID: 4015224172997110893}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -532.4956, y: -258.1554}
+  m_SizeDelta: {x: 1287.5044, y: 721.8446}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7700921894602994300
 CanvasRenderer:
@@ -1582,7 +1583,7 @@ GameObject:
   - component: {fileID: 8173849513886946434}
   - component: {fileID: 8440174390007478546}
   m_Layer: 5
-  m_Name: WebPanel
+  m_Name: SocialPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1601,7 +1602,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4015224172997110893}
-  - {fileID: 3174838873619417698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
