@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Unity.Mathematics;
 using UnityEngine;
-
+[DefaultExecutionOrder(1)]
 public class Enemy : MonoBehaviour
 {
     public int2 position = new(0, 0);
@@ -12,46 +12,45 @@ public class Enemy : MonoBehaviour
 
     bool[,] walkable = new bool[8, 8];
 
-    public GameObject slot;
+    public GameObject slotObj;
     Slot slotScript;
-    public GameObject player;
+    public GameObject playerObj;
     Player playerScript;
     int2 playerPrePosition;
 
     void Start()
     {
         
-        slotScript = slot.GetComponent<Slot>();
-        playerScript = player.GetComponent<Player>();
-        for (int y = 0; y < 8; y++)
-        {
-            for (int x = 0; x < 8; x++)
-            {
-                walkable[x, y] = true;
-            }
-        }
+        slotScript = slotObj.GetComponent<Slot>();
+        playerScript = playerObj.GetComponent<Player>();
+        playerPrePosition = playerScript.position;
 
-        for (int x=0;x<8;x++)
-        {
-            for(int y=0;y<8;y++)
-            {
-                if (slotScript.land8x8[x, y].state != 1)
-                    walkable[x, y] = false;
-            }
-        }
-        walkable[playerScript.position.x, playerScript.position.y]=false; 
+        SetMap();
     }
 
-    void LateUpdate()
+    void Update()
     {
-        if(playerScript.hasMove)
+        
+        if (playerScript.hasMove)
         {
-            
 
+            SetMap();
+           
+            
+            walkable[playerPrePosition.x, playerPrePosition.y] = false;
+            //Debug.Log((playerPrePosition.x, playerPrePosition.y));
+            //for(int x =0;x<8;x++)
+            //{
+            //    for (int y = 0; y < 8; y++)
+            //    {
+            //        if (walkable[x, y] == false)
+            //            Debug.Log("CanNotWalk" + (x, y));
+            //    }
+            //}
             MoveEnemyAway();
             walkable[playerPrePosition.x, playerPrePosition.y] = true;
             playerPrePosition = playerScript.position;
-            walkable[playerPrePosition.x, playerPrePosition.y] = false;
+            
         }
     }
 
@@ -80,12 +79,31 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        // 敌人沿最优路径前进一步
+        
         if (bestPath != null && bestPath.Count > 1)
         {
             position = bestPath[1];
             transform.position = new Vector3(worldPosition.x+5 * position.x, worldPosition.y + 5 * position.y,48);
-            Debug.Log("E:"+ position);
         }
+    }
+    void SetMap()
+    {
+        for (int y = 0; y < 8; y++)
+        {
+            for (int x = 0; x < 8; x++)
+            {
+                walkable[x, y] = true;
+            }
+        }
+
+        for (int x = 0; x < 8; x++)
+        {
+            for (int y = 0; y < 8; y++)
+            {
+                if (slotScript.land8x8[x, y].state != 1)
+                    walkable[x, y] = false;
+            }
+        }
+        walkable[playerScript.position.x, playerScript.position.y] = false;
     }
 }
