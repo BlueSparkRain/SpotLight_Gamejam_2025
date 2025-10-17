@@ -43,11 +43,11 @@ public class APPTagsCaller : MonoSingleton<APPTagsCaller>
         {
             EventCenter.Instance.EventTrigger(E_EventType.E_closeApp, apptype);
             Transform delTag = appTagsContainer.transform.GetChild(appTypeList.IndexOf(apptype));
-            delTag.SetParent(null);
-
+            //delTag.SetParent(null);
             appTypeList.Remove(apptype);
-            appTagsContainer.Remove(delTag, 0.1f);
+
             delTagAnim(delTag);
+            appTagsContainer.Remove(delTag, 0.2f);
         }
     }
 
@@ -55,8 +55,8 @@ public class APPTagsCaller : MonoSingleton<APPTagsCaller>
     void delTagAnim(Transform apptag)
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(apptag.DOJump(apptag.position+10*Vector3.up, 10, 1, 0.05f, true));
-        seq.Append(apptag.DOLocalMoveY(-20, 0.05f));
+        seq.Append(apptag.DOJump(apptag.position+10*Vector3.up, 10, 1, 0.1f, true));
+        seq.Append(apptag.DOLocalMoveY(-100, 0.1f));
         seq.SetAutoKill(true); // 动画播放完毕后自动销毁 Tween
         seq.Play();            // 开始播放 Sequence
         seq.OnComplete(() =>

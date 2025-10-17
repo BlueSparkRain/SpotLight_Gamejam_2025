@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoadManager : MonoSingleton<SceneLoadManager>
 {
 
-    public void TransNewScene(int buildindex)
+    public void LoadNewScene(int buildindex)
     {
         AsyncOperation ao = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         SceneManager.LoadScene(buildindex);

@@ -128,12 +128,12 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
 
         EventCenter.Instance.EventTrigger(E_EventType.E_dragAPPDone);
         if (GameSceneManager.Instance.targetEmptSlot.HasApp) {
-            Debug.Log("ERROR:目标槽已满");
+            //Debug.Log("ERROR:目标槽已满");
             slot = pre_slot;
         }
         else {
             //归位至新槽
-            Debug.Log("成功移至目标槽");
+            //Debug.Log("成功移至目标槽");
             slot = GameSceneManager.Instance.targetEmptSlot;
         }
 

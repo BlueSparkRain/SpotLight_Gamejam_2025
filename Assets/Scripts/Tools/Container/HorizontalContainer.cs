@@ -39,7 +39,7 @@ public class HorizontalContainer : MonoBehaviour
     {
         int delPos = elmList.IndexOf(trans);
 
-        trans.SetParent(null);
+    
         //调整后续列表显示
         if (elmList.Count > 1)
             StartCoroutine(adjustList(delPos, waitDelay));

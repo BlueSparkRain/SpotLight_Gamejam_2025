@@ -1,13 +1,35 @@
+using TMPro;
 using UnityEngine;
 
 public class MenuSceneManager : MonoBehaviour
 {
-    public void testOpen()
-    {
-        UIManager.Instance.ShowPanel<SceneTransPanel>(null,null);
+    [SerializeField] string username;
+    [SerializeField] string password;
+
+    public TMP_Text nameText;
+    public TMP_Text passwordText;
+
+    bool dataReady=false;
+
+    public void EnterDesktop() {
+        if(dataReady)
+        SceneLoadManager.Instance.LoadNewScene(1);
     }
-    public void testHide()
+
+    void fillData() { 
+        nameText.text= username;
+        passwordText.text = password;
+    }
+
+    private void Update()
     {
-        UIManager.Instance.HidePanel<SceneTransPanel>();
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            fillData();
+            if (dataReady) { 
+            EnterDesktop();
+            }
+            dataReady = true;
+        }
     }
 }
