@@ -1,4 +1,0 @@
-repository "SpotLight_Gamejam_2025/SpotLight_Gamejam_2025@33263304290206@cloud"
-  path "/"
-    br "/main"
-    co "/main"
