@@ -9,7 +9,7 @@ public class Slot : MonoBehaviour
     public Land[,] land8x8 = new Land[8,8];
     public GameObject playerObj;
 
-    void Start()
+    void Awake()
     {
         Player player = playerObj.GetComponent<Player>();
 

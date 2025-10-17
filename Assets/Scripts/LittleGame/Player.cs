@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public bool useItem1=false;
     public GameObject slot;
     Slot slotScript;
-
+    public bool hasMove=false;
 
     private void Awake()
     {
@@ -22,13 +22,13 @@ public class Player : MonoBehaviour
         slotScript = slot.GetComponent<Slot>();
 
         transform.position = new Vector3(worldPosition.x, worldPosition.y, 48);
-        Debug.Log(transform.position);
-        Debug.Log(worldPosition);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        hasMove = false;
         if (useItem1)
         {
 
@@ -38,18 +38,25 @@ public class Player : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.W))
             {
                 Move(new(0,1));
+                hasMove = true;
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
                 Move(new(-1, 0));
+                hasMove = true;
+
             }
             if (Input.GetKeyDown(KeyCode.S))
             {
                 Move(new(0, -1));
+                hasMove = true;
+
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 Move(new(1, 0));
+                hasMove = true;
+
             }
         }
     }
@@ -61,6 +68,7 @@ public class Player : MonoBehaviour
         {
             transform.position += new Vector3(5 * m.x, 5 * m.y, 0);
             position += m;
+            Debug.Log("P:" + position);
         }
         
     }
