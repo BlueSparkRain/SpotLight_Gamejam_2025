@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-
+[ExecuteAlways]
 public class Land : MonoBehaviour
 {
     public int2 ID;
@@ -13,25 +13,22 @@ public class Land : MonoBehaviour
     public Material M0;
     public Material M1;
 
-
-    private void Start()
+    
+    void Update()
     {
-        Material myMaterial = GetComponent<Material>();
+        Renderer renderer = GetComponent<Renderer>();
         switch (state)
         {
             case -1:
-                myMaterial = Mn1;
+                renderer.material = Mn1;
                 break;
             case 0:
-                myMaterial = M0;
+                renderer.material = M0;
                 break;
             case 1:
-                myMaterial = M1;
+                renderer.material = M1;
                 break;
-        }
             
-
-
-
+        }
     }
 }

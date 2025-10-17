@@ -6,7 +6,7 @@ using UnityEngine;
 public class Slot : MonoBehaviour
 {
    
-    Land[,] land8x8 = new Land[8,8];
+    public Land[,] land8x8 = new Land[8,8];
     public GameObject playerObj;
 
     void Start()
