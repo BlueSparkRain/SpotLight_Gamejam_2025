@@ -1,17 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    public int Item1Count = 2;
+
     public int2 position=new  (0,0);
     private int2 worldPosition=new int2(-20,-15);
     public bool usingItem1=false;
     public GameObject slotObj;
     Slot slotScript;
     public bool hasMove=false;
+    //¾µÏñÏà¹Ø
+    public bool mirrorBug = false;
+    bool haveMirror = false;
+    public GameObject playerMirror;
+    int2 MirrorPosition;
+    GameObject mirror;
 
     private void Awake()
     {
@@ -28,6 +37,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         hasMove = false;
         if (usingItem1)
         {
@@ -67,6 +77,7 @@ public class Player : MonoBehaviour
                 Move(new(1, 0));
             }
         }
+        MirrorMove();
     }
 
     void Move(int2 m)
@@ -80,7 +91,21 @@ public class Player : MonoBehaviour
             //Debug.Log("P:" + position);
         } 
     }
-
+    void MirrorMove()
+    {
+        if (mirrorBug)
+        {
+            if (!haveMirror)
+            {
+                mirror = Instantiate(playerMirror);
+                MirrorPosition = new(7-position.x, position.y);
+                mirror.transform.position = new Vector3(-20+ MirrorPosition.x*5, -15+ MirrorPosition.y*5, 48);
+                haveMirror = true;
+            }
+            MirrorPosition = new(7 - position.x, position.y);
+            mirror.transform.position = new Vector3(-20 + MirrorPosition.x * 5, -15 + MirrorPosition.y * 5, 48);
+        }
+    }
     void MovewithItem1(int2 m)
     {
         
@@ -98,6 +123,8 @@ public class Player : MonoBehaviour
                     transform.position += new Vector3(5 * m.x, 5 * m.y, 0);
                     position += m;
                     hasMove = true;
+                    usingItem1 = false;
+                    Item1Count--;
                     break;
                 }
                 else if(GetLandState(position.x, position.y + y * m.y) < 0)
@@ -121,6 +148,8 @@ public class Player : MonoBehaviour
                     transform.position += new Vector3(5 * m.x, 5 * m.y, 0);
                     position += m;
                     hasMove = true;
+                    usingItem1 = false;
+                    Item1Count--;
                     break;
                 }
                 else if (GetLandState(position.x+ x * m.x, position.y ) < 0)
@@ -143,7 +172,15 @@ public class Player : MonoBehaviour
     {
         if (usingItem1)
             usingItem1 = false;
-        else
+        else if(Item1Count>=1)
             usingItem1 = true;
+    }
+
+    public void UseMirrorBug()
+    {
+        if (mirrorBug)
+            mirrorBug = false;
+        else
+            mirrorBug = true;
     }
 }

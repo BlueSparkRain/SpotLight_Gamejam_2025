@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour
            
             
             walkable[playerPrePosition.x, playerPrePosition.y] = false;
+
+            if(playerScript.mirrorBug)
+                walkable[7-playerPrePosition.x, playerPrePosition.y] = false;
             //Debug.Log((playerPrePosition.x, playerPrePosition.y));
             //for(int x =0;x<8;x++)
             //{
@@ -49,6 +52,10 @@ public class Enemy : MonoBehaviour
             //}
             MoveEnemyAway();
             walkable[playerPrePosition.x, playerPrePosition.y] = true;
+
+            if (playerScript.mirrorBug)
+                walkable[7-playerPrePosition.x, playerPrePosition.y] = true;
+
             playerPrePosition = playerScript.position;
             
         }
@@ -105,5 +112,8 @@ public class Enemy : MonoBehaviour
             }
         }
         walkable[playerScript.position.x, playerScript.position.y] = false;
+        if (playerScript.mirrorBug)
+            walkable[7-playerScript.position.x, playerScript.position.y] = false;
+
     }
 }
