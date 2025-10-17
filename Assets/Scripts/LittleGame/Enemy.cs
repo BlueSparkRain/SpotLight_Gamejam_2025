@@ -16,9 +16,11 @@ public class Enemy : MonoBehaviour
     Slot slotScript;
     public GameObject player;
     Player playerScript;
+    int2 playerPrePosition;
 
     void Start()
     {
+        
         slotScript = slot.GetComponent<Slot>();
         playerScript = player.GetComponent<Player>();
         for (int y = 0; y < 8; y++)
@@ -37,13 +39,19 @@ public class Enemy : MonoBehaviour
                     walkable[x, y] = false;
             }
         }
+        walkable[playerScript.position.x, playerScript.position.y]=false; 
     }
 
     void LateUpdate()
     {
         if(playerScript.hasMove)
         {
+            
+
             MoveEnemyAway();
+            walkable[playerPrePosition.x, playerPrePosition.y] = true;
+            playerPrePosition = playerScript.position;
+            walkable[playerPrePosition.x, playerPrePosition.y] = false;
         }
     }
 
