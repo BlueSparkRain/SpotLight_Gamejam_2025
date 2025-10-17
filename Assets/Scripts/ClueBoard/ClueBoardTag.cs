@@ -17,7 +17,6 @@ public class ClueBoardTag : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         pivot = transform.parent;
         backImage = transform.parent.GetComponent<Image>();
         backImage.enabled = false;
-
         showPos = pivot.position;
         closePos = pivot.position + new Vector3(500, 0, 0);
     }
