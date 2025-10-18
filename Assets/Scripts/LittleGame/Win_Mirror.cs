@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[DefaultExecutionOrder(2)]
+[DefaultExecutionOrder(1)]
 public class Win_Mirror : MonoBehaviour
 {
     public GameObject enemyObj;

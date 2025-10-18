@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[DefaultExecutionOrder(2)]
+[DefaultExecutionOrder(1)]
 public class Win : MonoBehaviour
 {
     public GameObject enemyObj;

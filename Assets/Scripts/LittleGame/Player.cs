@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
     public int Item1Count = 2;
+    public TextMeshProUGUI Item1CountText;
 
     public int2 position=new  (0,0);
     private int2 worldPosition=new int2(-20,-15);
@@ -28,6 +31,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+
+        Item1CountText.text = "Item1: " + Item1Count;
         slotScript = slotObj.GetComponent<Slot>();
 
         transform.position = new Vector3(worldPosition.x, worldPosition.y, 48);
@@ -105,6 +110,14 @@ public class Player : MonoBehaviour
             MirrorPosition = new(7 - position.x, position.y);
             mirror.transform.position = new Vector3(-20 + MirrorPosition.x * 5, -15 + MirrorPosition.y * 5, 48);
         }
+        else
+        {
+            if (haveMirror)
+            {
+                Destroy(mirror);
+                haveMirror = false;
+            }
+        }
     }
     void MovewithItem1(int2 m)
     {
@@ -158,6 +171,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        Item1CountText.text = "Item1: " + Item1Count;
     }
 
     int GetLandState(int x, int y)

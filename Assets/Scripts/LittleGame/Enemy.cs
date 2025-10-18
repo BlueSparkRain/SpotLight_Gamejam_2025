@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Unity.Mathematics;
 using UnityEngine;
-[DefaultExecutionOrder(1)]
+[DefaultExecutionOrder(2)]
 public class Enemy : MonoBehaviour
 {
     public int2 position = new(0, 0);
