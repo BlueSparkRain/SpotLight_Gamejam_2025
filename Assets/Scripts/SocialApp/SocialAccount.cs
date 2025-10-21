@@ -13,10 +13,12 @@ public class SocialAccount : MonoBehaviour
     }
     void Update()
     {
-
+        int[] arr;
 
     }
     void callBlog() {
         SocialBlogCaller.Instance.CallBlog(account);
-    }
+      
+        }
+
 }

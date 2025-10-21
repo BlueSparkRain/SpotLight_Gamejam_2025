@@ -216,7 +216,6 @@ public class EventInfo<T> : IEventInfo
     }
 }
 
-
 //此接口用于里氏替换原则 装载子类的 父类，目标调父执行子中的
 public interface IEventInfo { }
 
