@@ -226,6 +226,8 @@ public enum E_EventType
     E_dragAPPDone,
     E_closeApp,
     E_minusApp,
+
+    E_switchClueBoard,
 }
 
 

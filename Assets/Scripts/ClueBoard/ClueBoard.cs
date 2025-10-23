@@ -13,7 +13,7 @@ public class ClueBoard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     Vector3 bornPos;
     Vector3 hidePos;
     Vector3 closePos;
-    public ClueBoardTag clueTag;
+    public ClueBoardMinusCaller clueTag;
     float animTime=0.4f;
 
     bool isHiding;

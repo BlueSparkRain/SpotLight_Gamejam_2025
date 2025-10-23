@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Packed Assets1
+  m_Name: ComplexBoard
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets1
+  m_GroupName: ComplexBoard
   m_Data:
     m_SerializedData: []
   m_GUID: 5f14ef3e9473f5946bfaffa0b7ceed26
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 751ecb710825209409338fbf3add45b9
+    m_Address: "Prefab/\u57FA\u7840\u5143\u7D20/\u7EBF\u7D22\u677F\u6761\u76EE/CluePersonDataBoard"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0dd84515555fc604a8465d7df066eefc, type: 2}
   m_SchemaSet:

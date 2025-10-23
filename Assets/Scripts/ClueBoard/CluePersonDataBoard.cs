@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClueBoardPersonData : MonoBehaviour
+public class CluePersonDataBoard : MonoBehaviour
 {
     [Header("»ÀŒÔ’’∆¨")]
     public Image photo;

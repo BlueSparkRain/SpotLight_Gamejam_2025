@@ -186,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -132.1615, y: 0}
-  m_SizeDelta: {x: -353.7475, y: 338.6248}
+  m_AnchoredPosition: {x: -147.51239, y: 0}
+  m_SizeDelta: {x: -323.0452, y: 353.17}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2605618504205436538
 CanvasRenderer:
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6865936463585965154}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.49670002
+  m_Size: 0.5142063
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 1
-  m_Elasticity: 0.1
+  m_Elasticity: 0
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
@@ -737,8 +737,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -174.051, y: -176.6012}
-  m_SizeDelta: {x: -348.1021, y: 1111.4578}
+  m_AnchoredPosition: {x: -154.52002, y: -183.18079}
+  m_SizeDelta: {x: -309.04, y: 1098.2986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6465357902979066111
 CanvasRenderer:
@@ -791,14 +791,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 44
+    m_Left: 13
     m_Right: 0
     m_Top: -11
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 700, y: 227.5}
+  m_CellSize: {x: 786.7, y: 270}
   m_Spacing: {x: 228, y: 3.2}
   m_Constraint: 0
   m_ConstraintCount: 2
