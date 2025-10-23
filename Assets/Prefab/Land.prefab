@@ -119,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350bc0200c844b745b177f4ec1e0d5d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bugManagerObj: {fileID: 0}
   ID:
     x: 0
     y: 0
@@ -126,3 +127,4 @@ MonoBehaviour:
   Mn1: {fileID: 2100000, guid: aba5dabd692ec6f40b5adec8454b3f02, type: 2}
   M0: {fileID: 2100000, guid: dda157a8bece0394daa446f4d3a40b09, type: 2}
   M1: {fileID: 2100000, guid: 17eb2f29ee4bbbf429f81e95081bb425, type: 2}
+  M2: {fileID: 2100000, guid: 5b27b101fe4270348b4c332472383472, type: 2}
