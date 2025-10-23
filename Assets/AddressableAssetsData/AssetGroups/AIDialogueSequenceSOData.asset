@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AIDialogueSequenceSOData
+  m_EditorClassIdentifier: 
+  m_GroupName: AIDialogueSequenceSOData
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 47025333478c30d4585e6126c88f7041
+  m_SerializeEntries:
+  - m_GUID: 1eed3296a5781cd4f92cda0a0a6ff1e8
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e38e606928ca13498222b9c24ba283a
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e6a664f52b95bd4eb0462de6ff655d6
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 84c9a23b3736a2b40b4596309fb7dfa6
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94b3b813b78946740a0b915641717b91
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96323312a6572a7478d3eff9050b9bfe
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa115d5112ac4464bb779b6044bf1b9a
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f850e57ea7935124f8865716f28284ac
+    m_Address: SO_Data/AIDialogueSequenceData/AITalkSeq4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0dd84515555fc604a8465d7df066eefc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 36def9b4599bcd64eb636da4a0eb050a, type: 2}
+    - {fileID: 11400000, guid: b7ce6a8c3c84ff8409394762077108d2, type: 2}

@@ -22,6 +22,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 404480f672865934aa5427d77ed8c27f
+    m_Address: "Prefab/\u57FA\u7840\u5143\u7D20/\u73A9\u5BB6\u9009\u62E9\u6309\u94AE/PlayerSelectButton"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f86c91ef7ba2d348ba27f3ebd30b2a9
     m_Address: "Prefab/\u57FA\u7840\u5143\u7D20/\u7EBF\u7D22\u677F\u6761\u76EE/ClueUnit"
     m_ReadOnly: 0

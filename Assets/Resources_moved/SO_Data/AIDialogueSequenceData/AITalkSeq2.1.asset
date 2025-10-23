@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa054ee748260641be276ae1f0c4cae, type: 3}
+  m_Name: AITalkSeq2.1
+  m_EditorClassIdentifier: 
+  ID: 2.1
+  canAutonNext: 0
+  canQuickShow: 1
+  needTyping: 1
+  currentIndex: 0
+  fadeDuration: 0
+  eventList: []
+  dialogueLine:
+  - speaker: 0
+    content: "\u597D\u5427\u3001\u597D\u5427\uFF01\u4E0D\u8BE5\u671F\u5F85\u4F60\u6709\u6BD4\u6211\u66F4\u9AD8\u660E\u7684\u5E7D\u9ED8\u611F\uFF01\r\n"

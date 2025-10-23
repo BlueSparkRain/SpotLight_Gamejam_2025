@@ -1,32 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AddressableTest : MonoBehaviour
 {
-    public E_ClueBoardPerson person;
-    public int clueID;
-    ClueFactoryManager clueFactoryManagerInstance;
-    ClueBoardRiserManager clueBoardRiserManager;
-
-
-
-    void Start()
+    DialogueManager DialogueManagerInstance;
+    private void Start()
     {
-        clueFactoryManagerInstance = ClueFactoryManager.Instance;
-        clueBoardRiserManager = ClueBoardRiserManager.Instance;
+        DialogueManagerInstance = DialogueManager.Instance;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            clueBoardRiserManager.AddNewBoard(person);
+            DialogueManagerInstance.BeginDialogueSequence(1, () =>
+            {
+                DialogueManager.Instance.AddDialogueEvent(1, 2, T1);
+                DialogueManager.Instance.AddDialogueEvent(1, 4, T2);
+            });
         }
+    }
 
-            if (Input.GetKeyDown(KeyCode.P)) {
-            clueFactoryManagerInstance.AddNewClue(person, 1);
-        }
+    void T1()
+    {
+        //Debug.Log("Fuck Me!");
+    }
+
+    void T2()
+    {
+        //Debug.Log("Fuck You!");
     }
 }

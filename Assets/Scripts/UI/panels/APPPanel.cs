@@ -39,8 +39,7 @@ public class APPPanel : BasePanel
         yield return sequence.WaitForCompletion();
 
     }
-    public override void ShowPanel()
-    {
+    public override void ShowPanel(){
         base.ShowPanel();
     }
 
@@ -54,15 +53,6 @@ public class APPPanel : BasePanel
         sequence.Join(root.DOLocalMove(Vector3.zero, transTime));
         yield return sequence.WaitForCompletion();
     }
-
-
-    protected override void Awake()
-    {
-        base.Awake();
-        //minusButton.onClick.AddListener(onclickminusButton);
-        //delButton.onClick.AddListener(onclickDelButton);
-    }
-  
 
     protected override void Init()
     {
