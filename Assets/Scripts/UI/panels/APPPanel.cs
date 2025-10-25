@@ -13,17 +13,26 @@ public class APPPanel : BasePanel
 
     public E_APPType appType;
 
+    protected EventCenter eventCenter;
+
     //关闭应用
     protected virtual void onclickDelButton(){
+
     }
     //缩略应用
     protected virtual void onclickminusButton(){
-        EventCenter.Instance.EventTrigger<E_APPType>(E_EventType.E_minusApp,appType);
+        eventCenter.EventTrigger(E_EventType.E_minusApp,appType);
     }
 
     public void SetWebBornPos(Vector3 _bornpos)
     {
         bornPos = _bornpos;
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        eventCenter = EventCenter.Instance;
     }
 
     public override void HidePanel()
@@ -41,6 +50,7 @@ public class APPPanel : BasePanel
     }
     public override void ShowPanel(){
         base.ShowPanel();
+        eventCenter.EventTrigger(E_EventType.E_ArrowHide);
     }
 
     public override IEnumerator ShowPanelTweenEffect()
@@ -58,5 +68,6 @@ public class APPPanel : BasePanel
     {
         minusButton.onClick.AddListener(onclickminusButton);
         delButton.onClick.AddListener(onclickDelButton);
+      
     }
 }

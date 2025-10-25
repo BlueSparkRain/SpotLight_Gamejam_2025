@@ -84,7 +84,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &8909896649236661658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ RectTransform:
   m_GameObject: {fileID: 1217591899618454377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.58, y: 0.58, z: 0.58}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6160393443926579252}
@@ -139,7 +139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 92.9, y: -71.7}
   m_SizeDelta: {x: 329.2085, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5915687431518173865
@@ -684,6 +684,7 @@ GameObject:
   - component: {fileID: 9188968699686021934}
   - component: {fileID: 2659645316048153566}
   - component: {fileID: 176274747334550793}
+  - component: {fileID: 4093004099612895186}
   m_Layer: 5
   m_Name: CollectableClue
   m_TagString: Untagged
@@ -705,8 +706,8 @@ RectTransform:
   m_Children:
   - {fileID: 6229175556885011146}
   - {fileID: 7602637716255239993}
-  - {fileID: 4891750088700713588}
   - {fileID: 4237844252165555864}
+  - {fileID: 4891750088700713588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -729,7 +730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7166179735767318800}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -752,6 +753,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4093004099612895186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7166179735767318800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d436a5a66f81bb349a434cd819f34488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 4126290752944587957}
+  clueContent: "\u67D4\u67D4\u5F31\u5F31"
+  end: {fileID: 7602637716255239993}
+  confirmBoard: {fileID: 3878477094988584001}
 --- !u!1 &8759276105439221907
 GameObject:
   m_ObjectHideFlags: 0

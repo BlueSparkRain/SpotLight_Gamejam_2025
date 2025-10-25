@@ -10,7 +10,6 @@ public enum E_DisplayType{
 
 public class DialoguePanel : BasePanel
 {
-
     [Header("高级文本")]
     public AdvancedText displayText;
     [Header("文本讲述者")]
@@ -72,19 +71,21 @@ public class DialoguePanel : BasePanel
     public override void ShowPanel(){
         base.ShowPanel();
     }
-
     public override IEnumerator ShowPanelTweenEffect()
     {
         Sequence sequence = DOTween.Sequence();
         sequence.Join(root.DOLocalMove(Vector3.zero, transTime));
         yield return sequence.WaitForCompletion();
     }
-
+    bool isInit=false;
     protected override void Init()
     {
         base.Init();
-        touchButton.onClick.AddListener(OnClickNextButton);
+        if (!isInit)
+        {
+            touchButton.onClick.AddListener(OnClickNextButton);
+            isInit = true;
+        }
         root.localPosition = new Vector3(0, -1000, 0);
-        
     }
 }

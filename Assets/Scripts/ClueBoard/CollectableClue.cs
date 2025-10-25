@@ -38,12 +38,12 @@ public class CollectableClue : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        image.color = Color.red;
+        image.color = new Color(255,0,0,50);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        image.color = Color.white;
+        image.color = new Color(0, 0, 0, 50);
        
     }
     

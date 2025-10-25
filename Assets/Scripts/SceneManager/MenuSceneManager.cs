@@ -2,6 +2,7 @@ using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MenuSceneManager : MonoBehaviour
@@ -37,8 +38,13 @@ public class MenuSceneManager : MonoBehaviour
     }
 
     void CallAI() {
-        dialogueManager.BeginDialogueSequence(1, () =>{
+        dialogueManager.BeginDialogueSequence(1, () => {
             DialogueManager.Instance.AddDialogueEvent(1, 4, CallSelect);
+            DialogueManager.Instance.AddDialogueEvent(1, 6, () =>
+            {
+                dataReady = true;
+                enterText.SetActive(true);
+            });
         });
     }
 
@@ -54,8 +60,6 @@ public class MenuSceneManager : MonoBehaviour
     void fillData() { 
         nameText.text= username;
         passwordText.text = password;
-        dataReady = true;
-        enterText.SetActive(true);
     }
 
     private void Update()

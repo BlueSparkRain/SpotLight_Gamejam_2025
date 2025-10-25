@@ -32,6 +32,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4e11a818b8013f4892e987e67503339
+    m_Address: "Prefab/\u57FA\u7840\u5143\u7D20/\u4EFB\u52A1\u6761\u76EE/TaskUnit"
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0dd84515555fc604a8465d7df066eefc, type: 2}
   m_SchemaSet:

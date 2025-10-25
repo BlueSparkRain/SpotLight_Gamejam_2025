@@ -4,6 +4,31 @@ using UnityEngine;
 
 public class LivePanel :APPPanel
 {
+    
+    void FrezzeButtons() {
+
+        minusButton.interactable = false;
+        delButton.interactable = false;
+    }
+
+    void ActiveButtons() {
+        minusButton.interactable = true;
+        delButton.interactable = true;
+    }
+    protected override void Init()
+    {
+        base.Init();
+
+        eventCenter.AddEventListener(E_EventType.E_FreezeLivePanel, FrezzeButtons);
+        eventCenter.AddEventListener(E_EventType.E_ActiveLivePanel, ActiveButtons);
+    }
+    
+    private void OnDisable()
+    {
+        eventCenter.RemoveEventListener(E_EventType.E_FreezeLivePanel, FrezzeButtons);
+        eventCenter.RemoveEventListener(E_EventType.E_ActiveLivePanel, ActiveButtons);
+    }
+
     protected override void onclickDelButton()
     {
         base.onclickDelButton();
@@ -19,6 +44,7 @@ public class LivePanel :APPPanel
     public override void ShowPanel()
     {
         base.ShowPanel();
+
     }
 
     public override void HidePanel()

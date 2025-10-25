@@ -1,6 +1,6 @@
 using DG.Tweening;
 using System.Collections;
-using System.Net.Sockets;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -11,9 +11,11 @@ public class PlayerSelectPanel : BasePanel
 {
     CanvasGroup canvasGroup;
     [Header("选择按钮")]
-    string  buttonPrefabPath= "Prefab/基础元素/玩家选择按钮/PlayerSelectButton";
+    string buttonPrefabPath = "Prefab/基础元素/玩家选择按钮/PlayerSelectButton";
 
     public Transform buttonsContainer;
+
+    List<GameObject> buttons = new List<GameObject>();
 
     public override void HidePanel()
     {
@@ -25,6 +27,12 @@ public class PlayerSelectPanel : BasePanel
         Sequence sequence = DOTween.Sequence();
         sequence.Join(canvasGroup.DOFade(0, transTime));
         yield return sequence.WaitForCompletion();
+
+        for (int i = buttons.Count - 1; i >= 0; i--)
+        {
+            Destroy(buttons[i]);
+        }
+        buttons.Clear();
     }
 
     public override void ShowPanel()
@@ -39,22 +47,32 @@ public class PlayerSelectPanel : BasePanel
         yield return sequence.WaitForCompletion();
     }
 
-    public void CreateOneSelectButton(string content, UnityAction action) {
+    public void CreateOneSelectButton(string content, UnityAction action)
+    {
         Button newButton;
         Addressables.InstantiateAsync(buttonPrefabPath, buttonsContainer).Completed += (handle) =>
         {
-            handle.Result.GetComponentInChildren<TMP_Text>().text=content;
-            newButton= handle.Result.GetComponent<Button>();
+            handle.Result.GetComponentInChildren<TMP_Text>().text = content;
+            buttons.Add(handle.Result);
+            newButton = handle.Result.GetComponent<Button>();
+
+            //StartCoroutine(WaitActive(newButton));
             newButton.onClick.AddListener(action);
-            newButton.onClick.AddListener(() => { UIManager.Instance.HidePanel<PlayerSelectPanel>();});  
+            newButton.onClick.AddListener(() => { UIManager.Instance.HidePanel<PlayerSelectPanel>(); });
         };
+    }
+
+    IEnumerator WaitActive(Button newButton) {
+        newButton.interactable = false;
+        yield return new WaitForSeconds(1);
+        newButton.interactable = true;
     }
 
     protected override void Init()
     {
         base.Init();
-        canvasGroup=GetComponent<CanvasGroup>();
+        canvasGroup = GetComponent<CanvasGroup>();
 
-        
+
     }
 }

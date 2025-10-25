@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa054ee748260641be276ae1f0c4cae, type: 3}
+  m_Name: AITalkSeq9
+  m_EditorClassIdentifier: 
+  ID: 9
+  canAutonNext: 0
+  canQuickShow: 1
+  needTyping: 1
+  currentIndex: 0
+  fadeDuration: 0
+  eventList: []
+  dialogueLine:
+  - speaker: 0
+    content: "\u6B23\u8D4F\u201C\u9ED1\u76D2\u201D\u5185\u7684\u5149\u666F\u5427\u2014\u2014\u79BB\u5947\u7684\u5165\u804C\u65F6\u95F4\u3001\u201Cclear\u201D\u6307\u4EE4\u7684\u4F7F\u7528\u2026\u2026\u7279\u522B\u6CE8\u610F\uFF0C\u4ED6\u73B0\u5728\u6240\u5728\u7684\u53EF\u662FAura\u7684\u7ADE\u54C1\u516C\u53F8\uFF01\r\n"
+  - speaker: 1
+    content: "\u518D\u6B21\u8FDB\u884C\u91CF\u5316\u8BC4\u5206\u5427\u3002\r\n"
+  - speaker: 0
+    content: "\u9075\u547D\uFF0C\u3010\u4E3B\u4EBA\u3011\u3002\r\n"
+  - speaker: 0
+    content: "51\u5206\u2026\u2026\u8FC5\u901F\u5730\u6ED1\u843D\u53CA\u683C\u7EBF\u4EE5\u4E0B\u4E86\uFF01\r\n"
+  - speaker: 1
+    content: "\u6BD4\u9884\u8BBE\u8981\u9AD8\u51FA\u4E00\u4E9B\u3002\r\n"
+  - speaker: 0
+    content: "\"\u3010\u4E3B\u4EBA\u3011\uFF0C\u5404\u9879\u6570\u636E\u8FFD\u8E2A\u951A\u5B9A\u5DF2\u5B8C\u6210\uFF0C\u76EE\u6807\u7F51\u7EDC\u6307\u7EB9\u6E05\u6670\u3002\r\n"
+  - speaker: 0
+    content: "\u6240\u6709\u524D\u7F6E\u6761\u4EF6\u57FA\u672C\u6EE1\u8DB3\uFF0C\u6211\u5728\u6B64\u5411\u60A8\u63D0\u51FA\u6B63\u5F0F\u7533\u8BF7\u2014\u2014\u662F\u5426\u7ACB\u5373\u6267\u884C\u5F00\u76D2\u7A0B\u5E8F\uFF1F\""
+  - speaker: 1
+    content: "\u51C6\u4E88\u6267\u884C\u3002\r\n"

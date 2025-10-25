@@ -11,6 +11,26 @@ public class UIManager : BaseSingleton<UIManager>
 {
 
     private Dictionary<string, BasePanel> panelDic = new Dictionary<string, BasePanel>();
+
+
+    /// <summary>
+    /// 获取到目标面板
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public BasePanel GetPanel<T>()
+    {
+        string panelName = typeof(T).Name;
+        if (panelDic.ContainsKey(panelName))
+        {
+            return panelDic[panelName];
+        }
+        Debug.Log("未查询到目标面板");
+        return null;
+    }
+
+
+
     public void ShowPanel<T>(UnityAction<T> end_callBack, UnityAction<T> before_callBack) where T : BasePanel
     {
         //获取面板名，预制体名和面板类名需保持一致

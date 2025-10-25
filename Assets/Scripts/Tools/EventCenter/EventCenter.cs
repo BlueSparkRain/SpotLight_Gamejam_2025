@@ -227,7 +227,13 @@ public enum E_EventType
     E_closeApp,
     E_minusApp,
 
+    E_FreezeLivePanel,
+    E_ActiveLivePanel,
+
     E_switchClueBoard,
+
+    E_ArrowAppear,
+    E_ArrowHide,
 }
 
 
