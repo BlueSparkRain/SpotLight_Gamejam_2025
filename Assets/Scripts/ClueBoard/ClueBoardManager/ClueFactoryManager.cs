@@ -33,16 +33,25 @@ public class ClueFactoryManager : MonoSingleton<ClueFactoryManager>
         for (int i = 1; i <= personNum; i++) {
             Addressables.LoadAssetAsync<PersonClueSOData>("SO_Data/PersonClueData/PersonClueData"+i).Completed+= (obj)=> {
                personClueSOData = obj.Result;
-               Debug.Log(personClueSOData);
+               //Debug.Log(personClueSOData);
 
                if (personBoardsDic.ContainsKey(personClueSOData.Person))
                    Debug.Log("ClueFactoryManager读取到重复的PersonClueSOData！");
                else{
                    personBoardsDic.Add(personClueSOData.Person, personClueSOData);
-                   Debug.Log(personClueSOData.Person + "--" + personClueSOData);
+                   //Debug.Log(personClueSOData.Person + "--" + personClueSOData);
                }
             };       
         }
+    }
+
+    public PersonClueSOData GetPersonSOData(E_ClueBoardPerson person)
+    {
+        if (personBoardsDic.ContainsKey(person))
+        {
+             return personBoardsDic[person];
+        }
+        return null;
     }
 
     GameObject newClueObj;
@@ -62,7 +71,7 @@ public class ClueFactoryManager : MonoSingleton<ClueFactoryManager>
                 newClueObj = handle.Result;
                 targetSOData = personBoardsDic[person];
                 string content = targetSOData.personClueDatas[clueID - 1].clueContent;
-
+                Debug.Log("xxxxxjjjj"+content);
                 newClueObj.GetComponent<ClueUnit>().Init(content);
 
                 boardFather.AddNewClue(person, newClueObj);

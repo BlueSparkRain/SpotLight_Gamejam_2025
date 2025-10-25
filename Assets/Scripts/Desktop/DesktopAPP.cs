@@ -97,7 +97,7 @@ public class DesktopAPP : MonoBehaviour, IPointerExitHandler, IPointerEnterHandl
             clickCount = 0;
             appIsRuning = true;
             //打开软件：呼叫面板
-            image.color = Color.black;
+            image.color = new Color (0.8f,0.8f,0.8f,0.8f);
             APPTagsCaller.Instance.CallNewAppTag(apptype);
         }
     }

@@ -30,7 +30,6 @@ public class UIManager : BaseSingleton<UIManager>
     }
 
 
-
     public void ShowPanel<T>(UnityAction<T> end_callBack, UnityAction<T> before_callBack) where T : BasePanel
     {
         //获取面板名，预制体名和面板类名需保持一致

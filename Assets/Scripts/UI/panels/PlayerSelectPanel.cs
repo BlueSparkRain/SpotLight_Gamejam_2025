@@ -56,7 +56,6 @@ public class PlayerSelectPanel : BasePanel
             buttons.Add(handle.Result);
             newButton = handle.Result.GetComponent<Button>();
 
-            //StartCoroutine(WaitActive(newButton));
             newButton.onClick.AddListener(action);
             newButton.onClick.AddListener(() => { UIManager.Instance.HidePanel<PlayerSelectPanel>(); });
         };

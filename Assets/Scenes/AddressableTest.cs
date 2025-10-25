@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class AddressableTest : MonoBehaviour
 {
-
-
-    private void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            EventCenter.Instance.EventTrigger(E_EventType.E_ArrowAppear,2);
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            EventCenter.Instance.EventTrigger(E_EventType.E_ArrowHide);
-        }
-
+        Debug.Log("777");
     }
 
-   
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.O))
+    //    {
+    //        EventCenter.Instance.EventTrigger(E_EventType.E_ArrowAppear,2);
+    //    }
+    //    if (Input.GetKeyDown(KeyCode.P))
+    //    {
+    //        EventCenter.Instance.EventTrigger(E_EventType.E_ArrowHide);
+    //    }
+
+    //}
+
+
 }

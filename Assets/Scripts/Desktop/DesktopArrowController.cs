@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class DesktopArrowController : MonoBehaviour
 {
-    [Header("0:聊天  1：社媒  2：直播")]
+    [Header("0:聊天  1：社媒  2：直播 3：线索板")]
     public List<Transform> apps = new List<Transform>();
     public Transform arrow;
     EventCenter eventCenter;

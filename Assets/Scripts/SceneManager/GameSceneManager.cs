@@ -13,12 +13,14 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
     TaskUnitFactory TaskUnitFactoryInstance;
     UIManager uiManager;
     EventCenter eventCenter;
+    ClueFactoryManager clueFactoryManager;
 
     void Start()
     {
         TaskUnitFactoryInstance = TaskUnitFactory.Instance;
         uiManager = UIManager.Instance;
         eventCenter=EventCenter.Instance;
+        clueFactoryManager=ClueFactoryManager.Instance;
         DialogueManagerInstance = DialogueManager.Instance;
         EventCenter.Instance.AddEventListener<DesktopAPP>(E_EventType.E_selectNewApp, Select_a_NewApp);
         EventCenter.Instance.AddEventListener(E_EventType.E_dragAPPDone, () => targetEmptSlot = DragNewTargetSlot());
@@ -86,8 +88,6 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
         {
             panel.CreateOneSelectButton("笑死，2035年了，还有人还将无法保证的“公正“奉为圭臬?", () =>
             {
-                Debug.Log("nnn");
-
                 DialogueManagerInstance.BeginDialogueSequence(3.1f, () =>
                 {
                     DialogueManagerInstance.AddDialogueEvent(3.1f, 0, () =>
@@ -98,7 +98,6 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
             });
             panel.CreateOneSelectButton("多说无益，调用今天的目标档案吧。", () =>
             {
-                Debug.Log("mmm");
                 StartCoroutine(StartAITalk4());
             });
         }, null);
@@ -122,13 +121,22 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
     void AddTask1()
     {
         TaskUnitFactoryInstance.GetNewTask("·搜集研究员的信息");
-        eventCenter.EventTrigger(E_EventType.E_ActiveLivePanel);
+
+        uiManager.ShowPanel<PlayerSelectPanel>(panel => {
+            panel.CreateOneSelectButton("请打开线索板", () => {
+                    eventCenter.EventTrigger(E_EventType.E_ArrowAppear, 3);
+                //线索版增加信息
+                ClueBoardRiserManager.Instance.AddNewBoard(E_ClueBoardPerson.研究员, ()=> clueFactoryManager.AddNewClue(E_ClueBoardPerson.研究员, 1));
+
+            });
+        }, null);
+
         StartCoroutine(StartAITalk5());
     }
 
     IEnumerator StartAITalk5()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
         BeginTalk5();
     }
 
@@ -143,7 +151,6 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
             });
         });
     }
-
 
     /// <summary>
     /// 点击新的APP

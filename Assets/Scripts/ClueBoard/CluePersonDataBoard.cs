@@ -22,18 +22,27 @@ public class CluePersonDataBoard : MonoBehaviour
     /// 设置名字
     /// </summary>
     /// <param name="name"></param>
-    public void setName(string name) => nameText.text = name;
+     void setName(string name) => nameText.text = name;
     /// <summary>
     /// 设置年龄
     /// </summary>
     /// <param name="age"></param>
-    public void setAge(int age) => ageText.text = age.ToString();
+    void setAge(int age) => ageText.text = age.ToString();
     /// <summary>
     /// 设置身份
     /// </summary>
     /// <param name="major"></param>
-    public void setMajor(string major) => majorText.text = major;
+    void setMajor(string major) => majorText.text = major;
 
+    void setPhoto(Sprite _photo)=>photo.sprite = _photo;    
+
+    public void Init(string name,int age,string major,Sprite photo)
+    {
+        setName(name);
+        setAge(age);
+        setMajor(major);
+        setPhoto(photo);
+    }
     /// <summary>
     /// 添加新线索
     /// </summary>
