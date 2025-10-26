@@ -18,6 +18,8 @@ public class Land : MonoBehaviour
     public Material M1;
     public Material M2;
 
+    private int frame=0;
+
     private void Start()
     {
         if(state==2)
@@ -47,12 +49,17 @@ public class Land : MonoBehaviour
                 break;
             case 2:
                 if(bugManagerScript.renderBug)
+                {
                     renderer.material = M2;
+                    renderer.material.SetInt("_Frame", frame);
+                }
+                    
+
                 else
                     renderer.material = Mn1;
                 break;
         }
-
+        frame++;
 
     }
 }
