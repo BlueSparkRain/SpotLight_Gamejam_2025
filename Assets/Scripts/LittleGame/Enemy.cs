@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public int2 position = new(0, 0);
     
-    private int2 worldPosition = new int2(-20, -15);
+    //private int2 worldPosition = new int2(-20, -15);
 
     bool[,] walkable = new bool[8, 8];
 
@@ -89,8 +89,10 @@ public class Enemy : MonoBehaviour
         
         if (bestPath != null && bestPath.Count > 1)
         {
-            position = bestPath[1];
-            transform.position = new Vector3(worldPosition.x+5 * position.x, worldPosition.y + 5 * position.y,48);
+            Debug.Log("yidon=");
+            position = bestPath[1]/3;
+            //transform.position = new Vector3(worldPosition.x+5 * position.x, worldPosition.y + 5 * position.y,0);
+            transform.position += new Vector3(5 * position.x,  5 * position.y, 0);
         }
     }
     void SetMap()

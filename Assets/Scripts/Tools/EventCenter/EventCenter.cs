@@ -230,6 +230,8 @@ public enum E_EventType
     E_FreezeLivePanel,
     E_ActiveLivePanel,
 
+    E_MinusAllPanels,
+
     E_switchClueBoard,
 
     E_ArrowAppear,

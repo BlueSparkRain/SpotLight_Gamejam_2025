@@ -22,7 +22,7 @@ public class HorizontalContainer : MonoBehaviour
 
         //Debug.Log("HorizontalContainer:--" + elmList.Count);
         if (elmList.Count > 0)
-            trans.position = elmList.Last().position + interval;
+            trans.position = elmList.Last().position + interval/11;
         else
             trans.position = headPos.position;
 

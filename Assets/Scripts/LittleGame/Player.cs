@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         bugManagerScript = bugManagerObj.GetComponent<BugManager>();
         slotScript = slotObj.GetComponent<Slot>();
         Item1CountText.text = "Item1: " + Item1Count;
-        transform.position = new Vector3(worldPosition.x, worldPosition.y, 48);
+        //transform.position = new Vector3(worldPosition.x, worldPosition.y, 48);
 
     }
 

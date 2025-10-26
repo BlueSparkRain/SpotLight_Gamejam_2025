@@ -7,48 +7,49 @@ using UnityEngine.UI;
 public class SocialBlog : MonoBehaviour
 {
     public Button gameButton;
-    public UnityEvent UnityEvent;
+    //public UnityEvent UnityEvent;
     DialogueManager DialogueManagerInstance;
     UIManager uiManager;
+
+    ClueFactoryManager clueFactoryManager;
 
     private void Awake()
     {
         uiManager = UIManager.Instance;
+        clueFactoryManager=ClueFactoryManager.Instance; 
         DialogueManagerInstance = DialogueManager.Instance;
         gameButton.onClick.AddListener(GameButton);
     }
 
+    bool isInit;
     private void OnEnable()
     {
-        StartCoroutine(StartTalk6());
+        if (!isInit){
+            isInit=true;
+            StartCoroutine(StartTalk6());
+        }
     }
     IEnumerator StartTalk6()
     {
         yield return new WaitForSeconds(1);
         DialogueManagerInstance.BeginDialogueSequence(6, () => {
             DialogueManagerInstance.AddDialogueEvent(6, 6, () => {
+                clueFactoryManager.AddNewClue(E_ClueBoardPerson.研究员, 2);
                 StartCoroutine(StartTalk8());
             });
         });
     }
-    public void BeginTalk6() {
-        Debug.Log("6666");
-        DialogueManagerInstance.BeginDialogueSequence(6, () => {
-            DialogueManagerInstance.AddDialogueEvent(6, 6, () => {
-                StartCoroutine(StartTalk8());
-            });
-        });
-    }
+
     IEnumerator StartTalk8() {
         yield return new WaitForSeconds(1);
         BeginTalk8();
     }
 
     void BeginTalk8() {
-        Debug.Log("8888");
         DialogueManagerInstance.BeginDialogueSequence(8, () => {
             DialogueManagerInstance.AddDialogueEvent(8, 0, () => {
                 //选项
+                clueFactoryManager.AddNewClue(E_ClueBoardPerson.研究员, 3);
                 BeginPlayerSelect();
             });
         });
@@ -60,10 +61,12 @@ public class SocialBlog : MonoBehaviour
         {
             panel.CreateOneSelectButton("继续", () =>
             {
+                clueFactoryManager.AddNewClue(E_ClueBoardPerson.研究员, 4);
                 //分值++；
             });
             panel.CreateOneSelectButton("到此为止", () =>
             {
+                clueFactoryManager.AddNewClue(E_ClueBoardPerson.研究员, 4);
                 //分值--；
             });
         }, null);
@@ -80,7 +83,8 @@ public class SocialBlog : MonoBehaviour
                     panel.CreateOneSelectButton("执行", () =>
                     {
                         //进行小游戏
-                        UnityEvent.Invoke();
+                        EventCenter.Instance.EventTrigger(E_EventType.E_MinusAllPanels);
+                        SceneLoadManager.Instance.AdditiveNewScene(2);  
                     });
                     panel.CreateOneSelectButton("稍等", () =>
                     {

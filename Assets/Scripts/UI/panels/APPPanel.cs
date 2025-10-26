@@ -15,6 +15,8 @@ public class APPPanel : BasePanel
 
     protected EventCenter eventCenter;
 
+    
+
     //πÿ±’”¶”√
     protected virtual void onclickDelButton(){
 
@@ -70,4 +72,19 @@ public class APPPanel : BasePanel
         delButton.onClick.AddListener(onclickDelButton);
       
     }
+
+    bool  init;
+    private void OnEnable()
+    {
+        if (!init) { 
+        init = true;
+            eventCenter.AddEventListener(E_EventType.E_MinusAllPanels, onclickDelButton);
+        }
+    }
+
+    private void OnDisable()
+    {
+        eventCenter.RemoveEventListener(E_EventType.E_MinusAllPanels, onclickDelButton);
+    }
+
 }

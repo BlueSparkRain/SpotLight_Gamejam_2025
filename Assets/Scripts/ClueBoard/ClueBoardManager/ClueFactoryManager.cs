@@ -71,7 +71,7 @@ public class ClueFactoryManager : MonoSingleton<ClueFactoryManager>
                 newClueObj = handle.Result;
                 targetSOData = personBoardsDic[person];
                 string content = targetSOData.personClueDatas[clueID - 1].clueContent;
-                Debug.Log("xxxxxjjjj"+content);
+                //Debug.Log("xxxxxjjjj"+content);
                 newClueObj.GetComponent<ClueUnit>().Init(content);
 
                 boardFather.AddNewClue(person, newClueObj);

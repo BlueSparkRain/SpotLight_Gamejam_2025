@@ -27,7 +27,7 @@ public class APPTagsCaller : MonoSingleton<APPTagsCaller>
             tagobj = Instantiate(appTagObjRef);
             tagobj.GetComponent<ButtomAppTag>().Init(apptype);
             appTagsContainer.Add(tagobj.transform);
-
+            tagobj.transform.localScale /= 11;
             APPCaller.Instance.CallApp(apptype,tagobj.transform.position);
             EventCenter.Instance.EventTrigger(E_EventType.E_minusApp,apptype);
         }

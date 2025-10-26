@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: LittleGame
+  m_EditorClassIdentifier: 
+  m_GroupName: LittleGame
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6fa86a7d631a3c042938ef664b616fe2
+  m_SerializeEntries:
+  - m_GUID: fbf5732a75fd9b24095053ea69c9270a
+    m_Address: Assets/Resources2/Prefab/LittleGame1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0dd84515555fc604a8465d7df066eefc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ceefe70bee74b1f4db589315a9b10e65, type: 2}
+    - {fileID: 11400000, guid: 89e59ff2c10f8364993bc3083a08a23d, type: 2}

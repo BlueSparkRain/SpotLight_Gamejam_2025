@@ -29,7 +29,6 @@ public class ClueBoardFather : MonoBehaviour
             else
                 boardDic[t].SetActive(false);
         }
-        Debug.Log(boardDic.Count+ "pppppppppppppppppppp"+activeBoard);
     }
 
 
